@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Fondo oscuro con bordes redondeados -->
+  <rect width="100" height="100" rx="20" fill="#050505"/>
+  
+  <!-- Iniciales JM (J en blanco, M en cian) -->
+  <text x="44" y="64" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="42" fill="#ffffff" text-anchor="middle" letter-spacing="1">
+    J<tspan fill="#5ce1e6">M</tspan>
+  </text>
+  
+  <!-- Cursor de código (bloque cian) -->
+  <rect x="78" y="52" width="10" height="10" fill="#5ce1e6"/>
+</svg>
