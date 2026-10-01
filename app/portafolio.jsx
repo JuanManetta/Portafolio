@@ -179,6 +179,7 @@ const Portfolio = () => {
               <span className="tech-tag">Generación con IA</span>
               <span className="tech-tag">Creación de Mockups</span>
               <span className="tech-tag">Edición Fotográfica</span>
+              <span className="tech-tag">Edición de Video</span>
             </div>
           </div>
         </div>
@@ -196,7 +197,7 @@ const Portfolio = () => {
         <div className="projects-grid">
           <a href="https://miemprendimiento-three.vercel.app/budino" target="_blank" rel="noopener noreferrer" className="project-card">
             <div className="project-image-container">
-              <img src="../public/CapturaEmprendimiento.png" alt="Captura de pantalla del proyecto"  className='project-img'/>
+              <img src="../src/CapturaEmprendimiento.png" alt="Captura de pantalla del proyecto"  className='project-img'/>
             </div>
             <div className="project-info">
               <span className="project-category">01 — SELECTED WORK</span>
@@ -218,9 +219,9 @@ const Portfolio = () => {
             <h2>Hagamos algo<br/><span className="text-italic accent-color">que importe.</span></h2>
             <p>Estoy abierto a nuevas oportunidades, ideas y desafíos.</p>
             <div className="social-icons">
-              <a href="https://github.com/tu-usuario" target="_blank" rel="noopener noreferrer" className="social-btn"><FaGithub /></a>
-              <a href="https://linkedin.com/in/tu-perfil" target="_blank" rel="noopener noreferrer" className="social-btn"><FaLinkedin /></a>
-              <a href="mailto:tu-email@gmail.com" className="social-btn"><FaEnvelope /></a>
+              <a href="https://github.com/JuanManetta" target="_blank" rel="noopener noreferrer" className="social-btn"><FaGithub /></a>
+              <a href="https://www.linkedin.com/in/juan-ignacio-manetta-940083264/" target="_blank" rel="noopener noreferrer" className="social-btn"><FaLinkedin /></a>
+              <a href="mailto:Juanmanetta04@gmail.com" className="social-btn"><FaEnvelope /></a>
             </div>
           </div>
           <form ref={form} onSubmit={sendEmail} className="contact-form">
