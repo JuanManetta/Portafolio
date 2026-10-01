@@ -3,6 +3,10 @@ import './portafolio.css';
 import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
 import emailjs from '@emailjs/browser';
 
+import { inject } from '@vercel/analytics';
+
+inject();
+
 const Portfolio = () => {
 
   const form = useRef();
