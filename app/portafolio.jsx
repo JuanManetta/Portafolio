@@ -2,7 +2,7 @@ import { useRef, useState } from 'react';
 import './portafolio.css';
 import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
 import emailjs from '@emailjs/browser';
-import imgProyectoMiEmprendimiento from '../src/proyecto-mi-emprendimiento.png';
+import imgProyectoMiEmprendimiento from '../src/proyecto-mi-emprendimiento.jpg';
 
 import { inject } from '@vercel/analytics';
 
