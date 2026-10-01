@@ -2,6 +2,7 @@ import { useRef, useState } from 'react';
 import './portafolio.css';
 import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
 import emailjs from '@emailjs/browser';
+import imgProyectoMiEmprendimiento from '../src/proyecto-mi-emprendimiento.png';
 
 import { inject } from '@vercel/analytics';
 
@@ -197,7 +198,7 @@ const Portfolio = () => {
         <div className="projects-grid">
           <a href="https://miemprendimiento-three.vercel.app/budino" target="_blank" rel="noopener noreferrer" className="project-card">
             <div className="project-image-container">
-              <img src="../src/proyecto-mi-emprendimiento.png" alt="Captura de pantalla del proyecto"  className='project-img'/>
+              <img src={imgProyectoMiEmprendimiento} alt="Captura de pantalla del proyecto"  className='project-img'/>
             </div>
             <div className="project-info">
               <span className="project-category">01 — SELECTED WORK</span>
