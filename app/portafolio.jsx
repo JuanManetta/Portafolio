@@ -3,6 +3,10 @@ import './portafolio.css';
 import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
 import emailjs from '@emailjs/browser';
 import imgProyectoMiEmprendimiento from '../src/proyecto-mi-emprendimiento.jpg';
+import imgProyectoBudino from '../src/proyecto-budino-1.jpg'; 
+import imgProyectoBudino2 from '../src/proyecto-budino-2.jpg';
+import imgProyectoBudino3 from '../src/proyecto-budino-3.jpg';
+import imgProyectoBudino4 from '../src/proyecto-budino-4.jpg';
 
 import { inject } from '@vercel/analytics';
 
@@ -13,6 +17,46 @@ const Portfolio = () => {
   const form = useRef();
   const [isSending, setIsSending] = useState(false);
   const [formStatus, setFormStatus] = useState('');
+
+  const [isCarouselOpen, setIsCarouselOpen] = useState(false);
+  const [currentImgIndex, setCurrentImgIndex] = useState(0);
+
+  const projectScreenshots = [
+    {
+      src: imgProyectoBudino,
+      title: 'Tablero Principal',
+      description: 'Resumen de ventas, productos y estadísticas en tiempo real.'
+    },
+    {
+      src: imgProyectoBudino2,
+      title: 'Gestión de Ventas',
+      description: 'Registro de ventas y seguimiento de transacciones.'
+    },
+    {
+      src: imgProyectoBudino3,
+      title: 'Calendario de Ventas',
+      description: 'Planificación y seguimiento de ventas, incluyendo recordatorios y metas.'
+    },
+    {
+      src: imgProyectoBudino4,
+      title: 'Productos y Stock',
+      description: 'Control de inventario y gestión de productos con actualización en tiempo real.'
+    }
+  ];
+
+  const handleOpenCarousel = (e) => {
+    e.preventDefault();
+    setCurrentImgIndex(0);
+    setIsCarouselOpen(true);
+  };
+
+  const nextImage = () => {
+    setCurrentImgIndex((prev) => (prev + 1) % projectScreenshots.length);
+  };
+
+  const prevImage = () => {
+    setCurrentImgIndex((prev) => (prev - 1 + projectScreenshots.length) % projectScreenshots.length);
+  };
 
   const sendEmail = (e) => {
     e.preventDefault(); 
@@ -125,6 +169,7 @@ const Portfolio = () => {
           </div>
         </div>
       </section>
+
       <section id="stack" className="stack-section">
         <div className="section-header">
           <span className="square"></span> 02 / STACK TECNOLÓGICO
@@ -185,6 +230,7 @@ const Portfolio = () => {
           </div>
         </div>
       </section>
+
       <section id="proyectos" className="projects-section">
         <div className="projects-header-container">
           <div className="section-header">
@@ -196,9 +242,10 @@ const Portfolio = () => {
           </div>
         </div>
         <div className="projects-grid">
+          {/* Proyecto 1 */}
           <a href="https://miemprendimiento-three.vercel.app/budino" target="_blank" rel="noopener noreferrer" className="project-card">
             <div className="project-image-container">
-              <img src={imgProyectoMiEmprendimiento} alt="Captura de pantalla del proyecto"  className='project-img'/>
+              <img src={imgProyectoMiEmprendimiento} alt="Captura de pantalla del proyecto" className='project-img'/>
             </div>
             <div className="project-info">
               <span className="project-category">01 — SELECTED WORK</span>
@@ -209,8 +256,50 @@ const Portfolio = () => {
               </div>
             </div>
           </a>
+          {/* Proyecto 2 */}
+          <div className="project-card project-card-clickable" onClick={handleOpenCarousel}>
+            <div className="project-image-container">
+              <img src={imgProyectoBudino} alt="Captura de pantalla del proyecto" className='project-img'/>
+              <span className="showcase-badge">📸 VER CAPTURAS ↗</span>
+            </div>
+            <div className="project-info">
+              <span className="project-category">02 — SELECTED WORK</span>
+              <h3>Sistema para registrar ventas</h3>
+              <p>Sistemas integrales de gestión de inventario y ventas.</p>
+              <div className="tech-tags-small">
+                <span>React</span><span>Vite</span><span>Next.js</span><span>Supabase</span>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
+      
+      {isCarouselOpen && (
+        <div className="modal-overlay" onClick={() => setIsCarouselOpen(false)}>
+          <div className="carousel-modal-content" onClick={(e) => e.stopPropagation()}>
+            <button className="carousel-close-btn" onClick={() => setIsCarouselOpen(false)}>✕</button>
+            
+            <div className="carousel-viewer">
+              <button className="carousel-arrow prev" onClick={prevImage}>❮</button>
+              <img 
+                src={projectScreenshots[currentImgIndex].src} 
+                alt={projectScreenshots[currentImgIndex].title} 
+                className="carousel-image" 
+              />
+              <button className="carousel-arrow next" onClick={nextImage}>❯</button>
+            </div>
+
+            <div className="carousel-caption">
+              <h4>{projectScreenshots[currentImgIndex].title}</h4>
+              <p>{projectScreenshots[currentImgIndex].description}</p>
+              <span className="carousel-counter">
+                {currentImgIndex + 1} / {projectScreenshots.length}
+              </span>
+            </div>
+          </div>
+        </div>
+      )}
+
       <section id="contacto" className="contact-section">
         <div className="section-header">
           <span className="square"></span> 04 / CONTACTO
@@ -249,6 +338,7 @@ const Portfolio = () => {
           </form>
         </div>
       </section>
+
       <footer className="footer">
         <span>© 2026 JUAN IGNACIO MANETTA</span>
         <span>DESARROLLADO CON <span className="accent-color">REACT</span> Y <span className="accent-color">VITE</span></span>
